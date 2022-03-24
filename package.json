@@ -1,12 +1,30 @@
 {
   "name": "events_app_vue",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
+  "author": "",
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "main": "index.js",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-router": "~4.5.15",
+    "@vue/cli-plugin-vuex": "~4.5.15",
+    "@vue/cli-service": "~4.5.15",
+    "@vue/compiler-sfc": "^3.0.0"
+  },
+  "_id": "events_app_vue@1.0.0",
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "readme": "ERROR: No README data found!"
 }
