@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // setup the api endpoint for the dummy DB
 const apiClient = axios.create({
-	baseURL: '/',
+	baseURL: 'https://my-json-server.typicode.com/Carlosdvp/events_app_vue',
 	withCredentials: false,
 	headers: {
 		Accept: 'application/json',
