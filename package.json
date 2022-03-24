@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "author": "",
+  "author": "C",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -11,6 +11,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.26.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
@@ -26,5 +27,5 @@
   "_id": "events_app_vue@1.0.0",
   "keywords": [],
   "license": "ISC",
-  "readme": "ERROR: No README data found!"
+  "readme": "Readme.md"
 }
