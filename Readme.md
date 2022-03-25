@@ -56,3 +56,50 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 4. Refactor api code into service layer
+
+------------------------------------------------------------------------
+
+
+# Part 3  -- Deploying with Render
+
+## Deployment Steps
+
+- Find a Web Hosting Service
+- Get SSL for a secure domain
+- Build the site locally
+- Drop those files into the server
+- Ensure it is served correctly
+
+
+* Website
+
+https://render.com/
+
+* Dashboard
+
+https://dashboard.render.com/
+
+* URl for the live site
+
+https://events-vue3-app.onrender.com
+
+- this seems like another good option, along with Heroku for a free option, although for more professional projects I can still use AWS, where my main site is hosted.
+
+
+------------------------------------------------------------------------
+
+
+# Part 4  -- Touring Vue Router
+
+### Building Pagination
+
+- Modify the eventService API call to take perPage and page
+- Parse and set the surrent page from the router using Function Mode
+- Modify EventList.vue to pass on a page number to EventService API
+- Add Pagination linls to the EventList Template
+- Only shoe the Next page link when there is a Next page
+
+I will add a new branch to add this feature without making breaking changes to the app before the thing is completed and working as intended. Otherwise the deployed app will get re-rendered with faulty code.
+
+New Branch: building-pagination
+
