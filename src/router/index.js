@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import EventList from '../views/EventList.vue'
 import EventDetails from '../views/EventDetails.vue'
 import About from '../views/About.vue'
@@ -23,7 +23,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  // this will remove the hash from the url
+  history: createWebHistory(),
   routes
 })
 
