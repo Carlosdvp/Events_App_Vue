@@ -123,7 +123,15 @@ Resource = event
 
 Actions = [Event details, Register for the Event, Edit the Event]
 
-- We will solve the issues that arise from createing a new folder > events inside of which we will have 3 different components: Details.vue (the renamed EventDetails.vue component), Register.vue, and Edit.vue
+- This section uses 2 approaches
+	- one with normal Routing
+	- and another with Nested Routes
+
+- With normal routing we achieve the desired goal, but we have a lot of duplicate code in the components.
 
 - The use of Nested Routes will allow us to reduce duplicate code and make the application more streamlined.
 
+#### How do we use Nested Routes?
+
+- create a layout component for our event components
+- this will contain the navigation for each event page, and the API call for fetching the event
