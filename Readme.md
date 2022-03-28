@@ -113,3 +113,17 @@ when using the API call in the `created()` lifecycle hook, it only gets called w
 In order tog et around this, we use the `import { watchEffect } from 'vue'` method, and then wrap the function call inside the created lifecycle hook inside of it, making the api call reactive. So, now anytime the function gets called it will update the page.
 
 When reactive objects are accessd inside this function change, it will run this function again.
+
+
+------------------------------------------
+
+### How do We map actions o URLs with a single resource?
+
+Resource = event
+
+Actions = [Event details, Register for the Event, Edit the Event]
+
+- We will solve the issues that arise from createing a new folder > events inside of which we will have 3 different components: Details.vue (the renamed EventDetails.vue component), Register.vue, and Edit.vue
+
+- The use of Nested Routes will allow us to reduce duplicate code and make the application more streamlined.
+
