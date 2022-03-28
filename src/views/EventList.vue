@@ -4,17 +4,21 @@
     <EventCard v-for="event in events" :key="event.id" :event="event" />
 
     <!-- Add the Links for Pagination here -->
-    <router-link
-      :to="{ name: 'EventList', query: { page: page - 1 } }"
-      rel="prev"
-      v-if="page != 1"
-    >Prev Page</router-link>
+    <div class="pagination">
+      <router-link
+        id="prev-page"
+        :to="{ name: 'EventList', query: { page: page - 1 } }"
+        rel="prev"
+        v-if="page != 1"
+      >&#60; Previous</router-link>
 
-    <router-link
-      :to="{ name: 'EventList', query: { page: page + 1 } }"
-      rel="next"
-      v-if="hasNextPage"
-    >Next Page</router-link>
+      <router-link
+        id="next-page"
+        :to="{ name: 'EventList', query: { page: page + 1 } }"
+        rel="next"
+        v-if="hasNextPage"
+      >Next &#62;</router-link>
+    </div>
   </div>
 </template>
 
@@ -72,5 +76,24 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pagination {
+  display: flex;
+  width: 290px;
+}
+
+.pagination a {
+  flex: 1;
+  text-decoration: none;
+  color: darkviolet;
+}
+
+#prev-page {
+  text-align: left;
+}
+
+#next-page {
+  text-align: right;
 }
 </style>
