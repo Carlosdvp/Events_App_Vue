@@ -101,5 +101,15 @@ https://events-vue3-app.onrender.com
 
 I will add a new branch to add this feature without making breaking changes to the app before the thing is completed and working as intended. Otherwise the deployed app will get re-rendered with faulty code.
 
-New Branch: building-pagination
+_New Branch: building-pagination_
 
+
+### Important Points
+
+#### EventList.vue
+
+when using the API call in the `created()` lifecycle hook, it only gets called when the page is created, so when we try to access the function again afterward for the pagination, nothing happens.
+
+In order tog et around this, we use the `import { watchEffect } from 'vue'` method, and then wrap the function call inside the created lifecycle hook inside of it, making the api call reactive. So, now anytime the function gets called it will update the page.
+
+When reactive objects are accessd inside this function change, it will run this function again.

@@ -7,7 +7,9 @@ const routes = [
   {
     path: '/',
     name: 'EventList',
-    component: EventList
+    component: EventList,
+    // if page exists parse the string to integer, else return 1
+    props: route => ( { page: parseInt(route.query.page) || 1 } )
   },
   {
     path: '/event/:id',
