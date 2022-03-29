@@ -91,13 +91,15 @@ https://events-vue3-app.onrender.com
 
 # Part 4  -- Touring Vue Router
 
+## Pagination
+
 ### Building Pagination
 
 - Modify the eventService API call to take perPage and page
 - Parse and set the surrent page from the router using Function Mode
 - Modify EventList.vue to pass on a page number to EventService API
 - Add Pagination linls to the EventList Template
-- Only shoe the Next page link when there is a Next page
+- Only shoe the Next page link when tehere is a Next page
 
 I will add a new branch to add this feature without making breaking changes to the app before the thing is completed and working as intended. Otherwise the deployed app will get re-rendered with faulty code.
 
@@ -114,8 +116,9 @@ In order tog et around this, we use the `import { watchEffect } from 'vue'` meth
 
 When reactive objects are accessd inside this function change, it will run this function again.
 
+-----------------------
 
-------------------------------------------
+## Nested Routes
 
 ### How do We map actions o URLs with a single resource?
 
@@ -135,3 +138,22 @@ Actions = [Event details, Register for the Event, Edit the Event]
 
 - create a layout component for our event components
 - this will contain the navigation for each event page, and the API call for fetching the event
+
+
+******
+### Error: 
+While there were originally 3 items in Events, the app was only showing 2, and although pagination works, the same two events kept being shown.
+
+- Also, when I reduced the number of events per page to one, the same event would be shown on all pages, although the pagination would appear as if there 2 pages, both sowing the same event.
+
+### Solution:
+Apparently in the EventService file where the getEvents method should've had
+
+`&_page` I had `$_page`
+
+*****
+
+-----------------------
+
+## Redirects and Aliases
+
