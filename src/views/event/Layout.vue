@@ -30,6 +30,11 @@ export default {
       this.event = response.data
     }).catch(error => {
       console.log(error)
+      // here we handle the 404 error for our pages and events
+      this.$router.push({
+        name: '404Resource',
+        params: { resource: 'event' }
+      })
     })
   }
 }
