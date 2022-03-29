@@ -173,3 +173,31 @@ You would have to:
 	2. Redirecting the old route to the new route
 
 
+-----------------------
+
+## Programmatic Navigation
+
+We will a button to the Event Registration page, and make it so that when we click on it, we progrmatically navigate back to the Event page.
+
+One thing we should keep in mind is that when we call `<router-link>` it's calling `this.$router.push` from inside the router-link definition.
+
+For example: 
+
+- when we have something like this:
+	`<router-link :to="{ name: 'About' }">About</router-link>`
+- once this link is clicked, it calls:
+	`this.$router.push({ name: 'About' })`
+
+
+-----------------------
+
+## Error Handling
+
+### Common Errors we need to account for
+
+* When a user tries to navigate to a page that doesn't exist
+* When a user navigates to a resource that doesn't exist
+* When the user's network connectivity fails
+
+- when a path doesn't exist we ned to load a Not Found component
+- when an event doesn't exist we will also load the NotFound component
