@@ -15,7 +15,7 @@ const routes = [
     props: route => ({ page: parseInt(route.query.page) || 1 })
   },
   {
-    path: '/event/:id',
+    path: '/events/:id',
     name: 'EventLayout',
     props: true,
     component: EventLayout,
@@ -34,6 +34,25 @@ const routes = [
         path: 'edit',
         name: 'EventEdit',
         component: EventEdit
+      }
+    ]
+  },
+  {
+    // Nested Routes
+    // this route will handle the redirect for the Layout route
+    path: '/event/:id',
+    redirect: to => {
+      return {name: 'EventDetails', params: {id: to.params.id}}
+    },
+    // we also need to redirect the nested routes or the app will break
+    children:  [
+      {
+        path: 'register', 
+        redirect: () => ({name: 'EventRegister'})
+      },
+      {
+        path: 'edit', 
+        redirect: () => ({name: 'EventEdit'})
       }
     ]
   },

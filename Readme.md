@@ -157,3 +157,19 @@ Apparently in the EventService file where the getEvents method should've had
 
 ## Redirects and Aliases
 
+Lets say that at some point you want to change a URL in your app from one route to another.
+
+- For example, changing `/about` to `/about-us`
+
+You would have to:
+	* Redirect the old route to the new route
+	- or -
+	* Alias the old route to the new route
+
+- In our application we will do the following:
+	- change `/event/:id` to `/events/:id`
+- This will be accomplished by:
+	1. Updating our component router path
+	2. Redirecting the old route to the new route
+
+
