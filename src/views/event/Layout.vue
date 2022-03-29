@@ -29,12 +29,20 @@ export default {
       .then(response => {
       this.event = response.data
     }).catch(error => {
-      console.log(error)
-      // here we handle the 404 error for our pages and events
-      this.$router.push({
-        name: '404Resource',
-        params: { resource: 'event' }
-      })
+      // console.log(error)
+      if (error.response && error.response.status == 404) {
+        // here we handle the 404 error for our pages and events
+        // if they it doesn;t exist load 404
+        this.$router.push({
+          name: '404Resource',
+          params: { resource: 'event' }
+        })
+
+      } else {
+        // otherwise assume network error and 
+        // load the network error component
+        this.$router.push({name: 'NetworkError'})
+      }
     })
   }
 }

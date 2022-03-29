@@ -201,3 +201,4 @@ For example:
 
 - when a path doesn't exist we ned to load a Not Found component
 - when an event doesn't exist we will also load the NotFound component
+- when the network fails, let's load a NetworkError component
