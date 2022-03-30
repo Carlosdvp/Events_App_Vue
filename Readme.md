@@ -231,3 +231,35 @@ In this lesson we updated the code in the following places:
 	- main.js
 	- Register.vue
 	- App.vue
+
+
+
+-----------------------
+
+## In-component Route Guards
+
+Problem: When internet is slow our page hangs
+
+We can solve this by using a progress bar with either of these options:
+	1. In-component Route Guards
+	2. Global and Per-route guards
+
+We will be using the first approach in the app.
+
+1. In-component Route Guards
+	- Move API call into an In-component route guard
+	- Install nprogress, progress bar library
+	- Start progress bar when routing to the component
+	- Finish the progress bar when the API call finishes
+	- Once this is done, ensure that the pagination still works as it should
+
+Vue Router has In-component Route Hooks, these are additional lifecycle hooks.
+	- beforeRouteEnter
+		- called before the component is created
+	- beforeRuteUpdate
+		- called when the route changes, but the component has not
+	- beforeRouteLeave
+		- called when the route is navigated away from
+
+
+(I will create a new branch to work on this new feature)
