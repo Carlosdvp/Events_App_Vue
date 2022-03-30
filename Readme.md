@@ -264,5 +264,5 @@ Vue Router has In-component Route Hooks, these are additional lifecycle hooks.
 
 (I will create a new branch to work on this new feature)
 
-git checkout main
-git merge feature-pagination
+- git checkout main
+- git merge feature-pagination
