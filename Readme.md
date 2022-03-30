@@ -202,3 +202,32 @@ For example:
 - when a path doesn't exist we ned to load a Not Found component
 - when an event doesn't exist we will also load the NotFound component
 - when the network fails, let's load a NetworkError component
+
+
+-----------------------
+
+## Flash Messages
+
+Problem: No message to confirm registration for an Event
+
+We need to accomplish the following:
+
+	- Create a global storage mechanism to store a flash message
+	- Set the flash message inside Register.vue
+	- Create a place where flash message is displayed
+
+#### Global Storage mechanism
+
+Although this is what Vuex is for, in vue 3 we have another solution and we don't need Vuex for that.
+
+We can create a reactive object to use as Global Storage, and share that object across our app.
+
+`Reactive means that when the object is updated, any Component that uses the object is re-rendered`
+
+
+#### Lesson Components
+
+In this lesson we updated the code in the following places:
+	- main.js
+	- Register.vue
+	- App.vue
