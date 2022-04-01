@@ -262,7 +262,12 @@ Vue Router has In-component Route Hooks, these are additional lifecycle hooks.
 		- called when the route is navigated away from
 
 
+--------------------------------------------------------------------
 (I will create a new branch to work on this new feature)
 
 - git checkout main
 - git merge feature-pagination
+
+- git checkout feature-route-guards
+--------------------------------------------------------------------
+

@@ -28,7 +28,7 @@
 import EventCard from "@/components/EventCard.vue"
 import EventService from '@/services/EventService.js'
 import { watchEffect } from 'vue'
-// import axios from 'axios'
+import NProgress from 'nprogress'
 
 export default {
   name: "EventList",
@@ -45,18 +45,24 @@ export default {
     }
   },
   created() {
-    // we use this method tp wrap the API call so it may update after the page is created
     watchEffect(() => {
-      // clear out the events on the page
-      this.events = null;
+      this.event = null
+      // Start the progress bar
+      NProgress.start()
       //get events from database
+      // Parse te page number from the route we are navigating to
       EventService.getEvents(2, this.page)
         .then(res => {
+          // continue routing and once the component is loaded, set these values
           this.events = res.data
           this.totalEvents = res.headers['x-total-count']
         })
         .catch(() => {
+          // if the API all fails, load the Network Error page
           this.$router.push({name: 'NetworkError'})
+        })
+        .finally(() => {
+          NProgress.done()
         })
     })
   },
