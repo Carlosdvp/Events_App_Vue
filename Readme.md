@@ -262,6 +262,14 @@ Vue Router has In-component Route Hooks, these are additional lifecycle hooks.
 		- called when the route is navigated away from
 
 
+### Problem:
+_for some reason this didn't work as intended; when the API call was placed inside the beforeRouteEnter hook, the lie of code that would grab the page number from the url was ending up as 'undefined'; so it kept defaulting to page 1. All the other lines of code were working as intended, so I undid those changes and left it as it was before the route guards._
+
+### Solution:
+OK, so the dude did go iver this issue later on in the video; since we are using the hook mentioned above the codeonly works when the route is called. That's why pagination broke, since we are using the same component from page to page, so it's not getting called.
+
+We need to swith to beforeRouteUpdate to solve this issue.
+
 --------------------------------------------------------------------
 (I will create a new branch to work on this new feature)
 
