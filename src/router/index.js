@@ -7,6 +7,10 @@ import EventEdit from '../views/event/Edit.vue'
 import About from '../views/About.vue'
 import NotFound from '../views/NotFound.vue'
 import NetworkError from '../views/NetworkError.vue'
+import NProgress from 'nprogress'
+import EventService from '../services/EventService.js'
+// import the GStore global state object
+import GStore from '@/store'
 
 
 const routes = [
@@ -22,6 +26,30 @@ const routes = [
     name: 'EventLayout',
     props: true,
     component: EventLayout,
+    // api call moved here from the Layout component
+    beforeEnter: (to) => {
+      // fetch the event by id and set local event data
+      // 'to' gives us the target route
+      return EventService.getEvent(to.params.id)
+        .then(response => {
+          GStore.event = response.data
+      }).catch(error => {
+        // console.log(error)
+        if (error.response && error.response.status == 404) {
+          // here we handle the 404 error for our pages and events
+          // if it doesn't exist load 404
+          // here and in the else we return a path to redirect
+          return {
+            name: '404Resource',
+            params: { resource: 'event' }
+          }
+        } else {
+          // otherwise assume network error and 
+          // load the network error component
+          return {name: 'NetworkError'}
+        }
+      })
+    },
     children: [
       {
         path: '',
@@ -88,6 +116,15 @@ const router = createRouter({
   // this will remove the hash from the url
   history: createWebHistory(),
   routes
+})
+
+// start the progress bar before navigation
+router.beforeEach(() => {
+  NProgress.start()
+})
+// finish the progress bar after navigation
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router

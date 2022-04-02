@@ -28,7 +28,6 @@
 import EventCard from "@/components/EventCard.vue"
 import EventService from '@/services/EventService.js'
 import { watchEffect } from 'vue'
-import NProgress from 'nprogress'
 
 export default {
   name: "EventList",
@@ -44,33 +43,11 @@ export default {
       totalEvents: 0
     }
   },
-  // created() {
-  //   watchEffect(() => {
-  //     this.event = null
-  //     // Start the progress bar
-  //     NProgress.start()
-  //     //get events from database
-  //     // Parse te page number from the route we are navigating to
-  //     EventService.getEvents(2, this.page)
-  //       .then(res => {
-  //         // continue routing and once the component is loaded, set these values
-  //         this.events = res.data
-  //         this.totalEvents = res.headers['x-total-count']
-  //       })
-  //       .catch(() => {
-  //         // if the API all fails, load the Network Error page
-  //         this.$router.push({name: 'NetworkError'})
-  //       })
-  //       .finally(() => {
-  //         NProgress.done()
-  //       })
-  //   })
-  // },
   beforeRouteEnter(to, from, next) {
-    NProgress.start()
     // get events from database and
     // Parse te page number from the route we are navigating to
-    EventService.getEvents(2, parseInt(to.query.page) || 1)
+    // we Return the promise so Vue Router knows to wait on the API call to complete before loading the page, this way the progress bar won't finish before the call is done during pagination
+    return EventService.getEvents(2, parseInt(to.query.page) || 1)
       .then(res => {
         next(comp => {
           // continue routing and once the component is loaded, set these values
@@ -82,12 +59,8 @@ export default {
         // if the API all fails, load the Network Error page
         next({name: 'NetworkError'})
       })
-      .finally(() => {
-        NProgress.done()
-      })
   },
   beforeRouteUpdate(to) {
-    NProgress.start()
     // get events from database and
     // Parse te page number from the route we are navigating to
     EventService.getEvents(2, parseInt(to.query.page) || 1)
@@ -99,9 +72,6 @@ export default {
       .catch(() => {
         // if the API all fails, load the Network Error page
         return {name: 'NetworkError'}
-      })
-      .finally(() => {
-        NProgress.done()
       })
   }, 
   computed: {

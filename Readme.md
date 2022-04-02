@@ -279,3 +279,37 @@ We need to swith to beforeRouteUpdate to solve this issue.
 - git checkout feature-route-guards
 --------------------------------------------------------------------
 
+
+
+-----------------------
+
+## Global and per Route Guards
+
+- Right now the progress bar only appears in the Events page
+- We need to have progress bars on every page
+
+- Next to fix the similar issue when navigating into an event, we need to do the following:
+	-- move the EventService file that handles the API call from the Layout component to the router
+	-- take the API call from the Layout component and move it to the router, in the `EventLayout` route we add a new item: `beforeEnter` and inside that method we add the api call
+		* We need to make some modifications to get this to work:
+			- we won;t have access to `this` so we need to remove all of them now
+			- add a `return` call to the EventService method
+			- Now in order to get the response data for the events we have to:
+				- using Gstore, the variable we created to store a global state which allows us to set a value in one component, and get access to that data in another with the `provide` and `inject` keywords.
+				- we can use this to set data from our router, and then get access to that data from our component. With no need to get access to `this`.
+				- For this we need it to be in it's own separate file so we have to move it out of the `main.js` file. The app created the store folder so we'll put it there, in the index.js file provided to us.
+				- some changes are made to the object and a new parameter is added to the object `event`, where we'll store the data returned from our API, and where our component will look for the data.
+				- also make the necessary change to main.js to poin to the new GStore location
+
+### Files changed in this Lesson:
+
+- router/index.js
+- store/index.js
+- views/event/Layout.vue
+- views/EventList.vue
+- main.js
+
+
+-----------------------
+
+##
