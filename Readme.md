@@ -280,7 +280,6 @@ We need to swith to beforeRouteUpdate to solve this issue.
 --------------------------------------------------------------------
 
 
-
 -----------------------
 
 ## Global and per Route Guards
