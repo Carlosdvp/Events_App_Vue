@@ -9,3 +9,7 @@
 
 
 
+## Create a new branch
+
+- git checkout -b <new-brnach-name>
+- git push --set-upstream origin <new-brnach-name>

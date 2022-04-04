@@ -91,6 +91,9 @@ https://events-vue3-app.onrender.com
 
 # Part 4  -- Touring Vue Router
 
+- tutorial github page
+github.com/Code-pop/Touring-Vue-Router
+
 ## Pagination
 
 ### Building Pagination
@@ -306,4 +309,12 @@ We need to swith to beforeRouteUpdate to solve this issue.
 
 
 # Part 5  -- Vuex Fundamentals
+
+
+- github page
+https://github.com/Code-Pop/Vuex_Fundamentals
+
+
+## Global State
+
 
