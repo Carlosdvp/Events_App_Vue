@@ -270,14 +270,7 @@ OK, so the dude did go iver this issue later on in the video; since we are using
 
 We need to swith to beforeRouteUpdate to solve this issue.
 
---------------------------------------------------------------------
-(I will create a new branch to work on this new feature)
 
-- git checkout main
-- git merge feature-pagination
-
-- git checkout feature-route-guards
---------------------------------------------------------------------
 
 
 -----------------------
@@ -309,6 +302,8 @@ We need to swith to beforeRouteUpdate to solve this issue.
 - main.js
 
 
------------------------
+******************************************************************************************************************************************************************************************
 
-##
+
+# Part 5  -- Vuex Fundamentals
+
