@@ -115,7 +115,10 @@ const routes = [
 const router = createRouter({
   // this will remove the hash from the url
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
 
 // start the progress bar before navigation
