@@ -317,4 +317,42 @@ https://github.com/Code-Pop/Vuex_Fundamentals
 
 ## Global State
 
+- additional libraries
+	- uuid
+	- npm install -g json-server (installing globally since it is a useful tool, can be installed on a for-project basis as well)
 
+- Firt I commented out the flash message and its global object
+- Implementing the Vuex store, from simple to complex
+- will add the flash message back in later
+
+## Updating the Backend
+
+- so far I have been using a mock json database
+- but in orer to make updates and to add events that will persist for later referene I need to create a local json server that will save new events created to our db.json file (our local database)
+
+### Update the package.json file torun the json server as well
+
+- change the *serve* script 
+from: 
+`vue-cli-service serve`
+to:
+`vue-cli-service serve & json-server --watch db.json`
+
+### Can't run previous command without triggering CORS
+
+- apparently I hca to run each command separately or it won't work, like so:
+
+"mockDbServer": "json-server --watch db.json"
+
+
+---------------------------------------------------------
+
+## Updating and Fetching State
+
+### Tasks:
+
+	- Post events to mock DB
+	- Add events to Vuex state
+
+
+	

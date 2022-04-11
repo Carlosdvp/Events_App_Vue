@@ -62,7 +62,7 @@ export default {
   },
   beforeRouteUpdate(to) {
     // get events from database and
-    // Parse te page number from the route we are navigating to
+    // Parse the page number from the route we are navigating to
     EventService.getEvents(2, parseInt(to.query.page) || 1)
       .then(res => {
         // continue routing and once the component is loaded, set these values

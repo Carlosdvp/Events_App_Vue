@@ -49,6 +49,26 @@
       "date": "April 11, 2022",
       "time": "9:00",
       "organizer": "Fiodor Hodor"
+    },
+    {
+      "id": "695aaf00-637a-4fa8-a696-9cd71ad48494",
+      "category": "",
+      "title": "dance off",
+      "description": "dance",
+      "location": "here",
+      "date": "today",
+      "time": "now",
+      "organizer": "Julius Ceasar"
+    },
+    {
+      "id": "42bee993-9108-4a8d-8756-6cc37c56b850",
+      "category": "",
+      "title": "Climb the Mountain",
+      "description": "Climb",
+      "location": "The mountain",
+      "date": "4/12/22",
+      "time": "12:00 pm",
+      "organizer": "Julius Ceasar"
     }
   ]
 }

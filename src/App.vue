@@ -7,7 +7,8 @@
     <!-- naigation Links -->
     <div id="nav">
       <router-link :to="{ name: 'EventList' }">Events</router-link> |
-      <router-link :to="{ name: 'About' }">About</router-link>
+      <router-link :to="{ name: 'About' }">About</router-link> |
+      <router-link :to="{ name: 'EventCreate' }">Create Event</router-link>
     </div>
     <!-- Rendered content for the App -->
     <router-view />
@@ -50,7 +51,7 @@ h4 {
 }
 
 /*************************
-* flash message 
+* flash message *
 when the div appears fade the background from blue to transparent
 ***************************/
 @keyframes bluefade {

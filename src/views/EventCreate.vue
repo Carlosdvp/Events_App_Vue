@@ -7,7 +7,7 @@
       <label>Select a category:</label>
       <select v-model="event.category">
         <option
-          v-for="option in catgories"
+          v-for="option in categories"
           :value="option"
           :key="option"
           :selected="option === event.category">{{ option }}</option>
@@ -31,6 +31,9 @@
 
       <button type="submit">Submit</button>
 
+      <!-- Just for testing - to see what events are in our state -->
+      <!-- <div>{{ $store.state.events }}</div> -->
+
     </form>
   </section>
 
@@ -38,6 +41,7 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
+import EventService from '@/services/EventService.js'
 
 export default {
   data() {
@@ -65,15 +69,78 @@ export default {
   },
   methods: {
     onSubmit() {
+      // ue the uuid library to create unique id's
       this.event.id = uuidv4()
+      // this is a basic way of accessing the data in the store from our component
       this.event.organizer = this.$store.state.user
       console.log("Event:", this.event)
+      EventService.postEvent(this.event)
+        .then(() => {
+          // add event to Vuex state, when user clicks submit, it will commit the mutation and add the payload to our state
+          this.$store.commit('ADD_EVENT', this.event)
+          // console.log(this.event)
+        }).catch(error => {
+          console.log(error)
+        })
     }
   }
 }
 
 </script>
 
-<style>
+<style scoped>
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 2.3rem;
+  margin-bottom: 1.5rem;
+}
+
+input[type=text] {
+  padding: 0 10px;
+}
+
+input:focus {
+  border-color: firebrick;
+  outline: 0;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+select:focus {
+  border-color: firebrick;
+  outline: 0;
+}
+
+button {
+  align-items: center;
+  height: 3rem;
+  padding: 0 40px;
+  background: linear-gradient(to right, lightblue, lightskyblue);
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.3);
+}
 
 </style>
