@@ -41,7 +41,7 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
-import EventService from '@/services/EventService.js'
+// import EventService from '@/services/EventService.js'
 
 export default {
   data() {
@@ -74,14 +74,8 @@ export default {
       // this is a basic way of accessing the data in the store from our component
       this.event.organizer = this.$store.state.user
       console.log("Event:", this.event)
-      EventService.postEvent(this.event)
-        .then(() => {
-          // add event to Vuex state, when user clicks submit, it will commit the mutation and add the payload to our state
-          this.$store.commit('ADD_EVENT', this.event)
-          // console.log(this.event)
-        }).catch(error => {
-          console.log(error)
-        })
+      // now we need to dispatch the 'Action' that will commit the mutation and update the state
+      this.$store.dispatch('createEvent', this.event)
     }
   }
 }

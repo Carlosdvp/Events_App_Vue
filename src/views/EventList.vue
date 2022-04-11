@@ -39,8 +39,8 @@ export default {
   data() {
     return {
       events: null,
-      // store the total number of events
       totalEvents: 0
+      
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -59,6 +59,7 @@ export default {
         // if the API all fails, load the Network Error page
         next({name: 'NetworkError'})
       })
+    // this.$store.dispatch('fetchEvents')
   },
   beforeRouteUpdate(to) {
     // get events from database and
@@ -80,7 +81,11 @@ export default {
       var totalPages = Math.ceil(this.totalEvents / 2)
       // return if this page is not the last page
       return this.page < totalPages
-    }
+    },
+    // this computed property replaces the code we had in the data() section
+    // events() {
+    //   return this.$store.state.events
+    // }
   }
 };
 </script>

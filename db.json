@@ -69,6 +69,16 @@
       "date": "4/12/22",
       "time": "12:00 pm",
       "organizer": "Julius Ceasar"
+    },
+    {
+      "id": "a31e8007-2706-4f41-8aa1-05717382a8f3",
+      "category": "animalistic",
+      "title": "BearManPig",
+      "description": "bear man pig",
+      "location": "here",
+      "date": "4",
+      "time": "12:00 pm",
+      "organizer": "Julius Ceasar"
     }
   ]
 }
