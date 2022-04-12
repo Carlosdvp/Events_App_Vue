@@ -79,6 +79,26 @@
       "date": "4",
       "time": "12:00 pm",
       "organizer": "Julius Ceasar"
+    },
+    {
+      "id": "f975dbee-258a-4625-bb3a-dc3372b14c18",
+      "category": "fitness",
+      "title": "Lift",
+      "description": "lift heavy things",
+      "location": "Here",
+      "date": "today",
+      "time": "7:00am",
+      "organizer": "Julius Ceasar"
+    },
+    {
+      "id": "76da654a-b140-4fb6-922d-0bd7efaf2b99",
+      "category": "fitness",
+      "title": "Lift",
+      "description": "lift heavy things",
+      "location": "Here",
+      "date": "today",
+      "time": "7:00am",
+      "organizer": "Julius Ceasar"
     }
   ]
 }

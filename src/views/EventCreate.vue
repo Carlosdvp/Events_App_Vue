@@ -73,9 +73,18 @@ export default {
       this.event.id = uuidv4()
       // this is a basic way of accessing the data in the store from our component
       this.event.organizer = this.$store.state.user
-      console.log("Event:", this.event)
       // now we need to dispatch the 'Action' that will commit the mutation and update the state
-      this.$store.dispatch('createEvent', this.event)
+      this.$store.dispatch('createEvent', this.event).then(() => {
+        this.$router.push({
+          name: 'EventDetails',
+          params: { id: this.event.id }
+        })
+      }).catch(error => {
+        this.$router.push({
+          name: 'ErrorDisplay',
+          params: { error: error }
+        })
+      })
     }
   }
 }

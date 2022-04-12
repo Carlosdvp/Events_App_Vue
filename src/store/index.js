@@ -24,12 +24,12 @@ const store = createStore({
 	actions: {
 		createEvent({ commit }, event) {
 			// make the required API call here, to POST new events to mock DB
-		  EventService.postEvent(event)
+		  return EventService.postEvent(event)
 	      .then(() => {
 	        // add event to Vuex state, when user clicks submit, it will commit the mutation and add the payload to our state
 	        commit('ADD_EVENT', event)
 	      }).catch(error => {
-	        console.log(error)
+	        throw(error)
 	      })
 		},
 		// fetchEvents({ commit }) {
@@ -55,11 +55,11 @@ const store = createStore({
 			if (existingEvent) {	
 				commit('SET_EVENT', existingEvent)
 			} else {
-				EventService.getEvent(id)
+				return EventService.getEvent(id)
 					.then(response => {
 						commit('SET_EVENT', response.data)
 					})
-					.catch(error => console.log(error))
+					.catch(error => { throw(error) })
 			}
 		}
 	}

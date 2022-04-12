@@ -355,4 +355,18 @@ to:
 	- Add events to Vuex state
 
 
-	
+
+
+---------------------------------------------------------
+
+## Error Handling
+
+- Create a new component to display errors (ErrorDisplay)
+- Add ErrorDisplay as a route
+- Vuex actions give error to the component that triggered it
+- Route user to ErrorDisplay when an error is caught
+
+Changes were made to the following files:
+
+- router/index.js
+- store/index.js
